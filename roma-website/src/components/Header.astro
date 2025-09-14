@@ -58,10 +58,18 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: white; /* Fondo sólido por defecto */
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   transition: all var(--transition-fast);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Backdrop blur solo en desktop donde funciona mejor */
+@media (min-width: 769px) {
+  .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .nav {
@@ -169,14 +177,16 @@
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 100%;
+  top: 70px; /* Justo debajo del header */
   left: 0;
   right: 0;
   background: var(--color-white);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  transform: translateY(-100%);
+  transform: translateY(-100%); /* Oculto por defecto */
   transition: transform var(--transition-normal);
   z-index: 999;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .mobile-menu-content {
@@ -229,16 +239,25 @@
 
 .mobile-menu.active {
   transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
+  .header {
+    background: white !important; /* Fondo sólido en móvil */
+  }
+
   .nav-links,
   .btn {
     display: none;
   }
 
-  .mobile-menu-toggle,
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
   .mobile-menu {
     display: block;
   }
@@ -250,6 +269,14 @@
   .logo-image {
     width: 35px;
     height: 35px;
+  }
+
+  .nav {
+    min-height: 70px; /* Altura mínima más grande en móvil */
+  }
+
+  .nav-content {
+    min-height: 50px; /* Asegurar contenido visible */
   }
 }
 
@@ -280,22 +307,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Efecto de scroll en el header
-  let lastScrollTop = 0;
-  const header = document.querySelector('.header');
+  // Función para manejar scroll del header
+  function handleHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
 
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    let lastScrollTop = 0;
+    let ticking = false;
 
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      // Scroll hacia abajo - ocultar header
-      header.style.transform = 'translateY(-100%)';
-    } else {
-      // Scroll hacia arriba - mostrar header
-      header.style.transform = 'translateY(0)';
+    function updateHeader() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // En móvil (≤768px), siempre mantener visible
+      if (window.innerWidth <= 768) {
+        header.style.transform = 'translateY(0)';
+        header.style.position = 'fixed';
+        header.style.top = '0';
+        return;
+      }
+
+      // En desktop, comportamiento normal de scroll
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scroll hacia abajo - ocultar header
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        // Scroll hacia arriba - mostrar header
+        header.style.transform = 'translateY(0)';
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
 
-    lastScrollTop = scrollTop;
-  });
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      requestTick();
+      ticking = false;
+    });
+
+    window.addEventListener('resize', () => {
+      requestTick();
+      ticking = false;
+    });
+
+    // Ejecutar una vez al cargar
+    updateHeader();
+  }
+
+  // Ejecutar función de scroll
+  handleHeaderScroll();
 });
 </script>
