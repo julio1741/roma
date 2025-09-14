@@ -66,6 +66,7 @@
 
 .nav {
   padding: var(--spacing-md) 0;
+  min-height: 60px; /* Altura mínima para touch */
 }
 
 .nav-content {
@@ -136,12 +137,18 @@
   display: none;
   flex-direction: column;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 44px; /* Tamaño touch-friendly */
+  height: 44px; /* Tamaño touch-friendly */
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 8px; /* Padding para área de toque más grande */
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.mobile-menu-toggle:hover {
+  background-color: var(--color-gray-light);
 }
 
 .mobile-menu-toggle span {
@@ -246,16 +253,7 @@
   }
 }
 
-/* Padding para el contenido principal */
-body {
-  padding-top: 80px;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-  }
-}
+/* Padding para el contenido principal se maneja en global.css */
 </style>
 
 <script>

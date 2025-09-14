@@ -73,6 +73,7 @@ body {
   line-height: 1.6;
   color: var(--color-primary-black);
   background-color: var(--color-white);
+  padding-top: 80px; /* Espacio para el header fijo */
 }
 
 /* Tipografía */
@@ -271,6 +272,10 @@ a:hover {
     --font-size-5xl: 2.5rem;
     --font-size-4xl: 2rem;
     --font-size-3xl: 1.5rem;
+  }
+
+  body {
+    padding-top: 70px; /* Header más pequeño en móvil */
   }
 
   .container {
