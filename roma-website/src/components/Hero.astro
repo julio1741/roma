@@ -59,7 +59,7 @@
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
             </div>
-            <h3>Rapidez</h3>
+            <h3>⚡ Rapidez</h3>
             <p>Respuesta ágil a desafíos complejos</p>
           </div>
 
@@ -71,7 +71,7 @@
                 <path d="m22 21-3-3m0-18a3 3 0 1 1 0 6 3 3 0 0 1 0-6"/>
               </svg>
             </div>
-            <h3>Talento Especializado</h3>
+            <h3>🎯 Talento Especializado</h3>
             <p>Profesionales certificados con experiencia</p>
           </div>
 
@@ -83,7 +83,7 @@
                 <path d="m2 12 10 5 10-5"/>
               </svg>
             </div>
-            <h3>Impacto Social</h3>
+            <h3>💫 Impacto Social</h3>
             <p>Transformando vidas en cada proyecto</p>
           </div>
         </div>
@@ -112,7 +112,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #FFF8DC 0%, #F8F9FA 50%, #FFFACD 100%);
 }
 
 .hero-background {
@@ -132,8 +132,9 @@
   bottom: 0;
   background: linear-gradient(
     135deg,
-    rgba(255, 140, 0, 0.05) 0%,
-    rgba(34, 139, 34, 0.05) 100%
+    rgba(255, 215, 0, 0.08) 0%,
+    rgba(255, 235, 59, 0.06) 50%,
+    rgba(255, 215, 0, 0.08) 100%
   );
   z-index: 2;
 }
@@ -208,10 +209,11 @@
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
   padding: var(--spacing-lg);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.1);
 }
 
 .stat {
@@ -287,14 +289,16 @@
 }
 
 .card-yellow {
-  background: linear-gradient(135deg, var(--color-primary-yellow) 0%, #ffcc00 100%);
+  background: linear-gradient(135deg, var(--color-primary-yellow) 0%, var(--color-yellow-bright) 100%);
   color: var(--color-primary-black);
   font-weight: 600;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.25);
 }
 
 .card-gray {
   background: linear-gradient(135deg, var(--color-primary-gray) 0%, #555555 100%);
   color: white;
+  box-shadow: 0 8px 25px rgba(51, 51, 51, 0.25);
 }
 
 .card-black {

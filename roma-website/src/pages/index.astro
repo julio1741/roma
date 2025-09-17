@@ -282,13 +282,32 @@ import Footer from '../components/Footer.astro';
   background: white;
   border-radius: var(--radius-lg);
   border-left: 4px solid var(--color-primary-yellow);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.03) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
 }
 
 .experience-card:hover {
-  transform: translateX(8px);
-  box-shadow: var(--shadow-md);
+  transform: translateX(12px) translateY(-4px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.15);
+  border-left-color: var(--color-yellow-bright);
+}
+
+.experience-card:hover::before {
+  opacity: 1;
 }
 
 .experience-card h3 {
@@ -307,12 +326,14 @@ import Footer from '../components/Footer.astro';
 
 /* Contadores e impacto */
 .impact-counter {
-  background: linear-gradient(135deg, var(--color-primary-yellow), var(--color-yellow-hover));
+  background: linear-gradient(135deg, var(--color-primary-yellow), var(--color-yellow-bright));
   color: var(--color-primary-black);
   font-weight: 600;
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
   margin-bottom: var(--spacing-xl);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+  border: 2px solid rgba(255, 235, 59, 0.4);
 }
 
 .counter-item {

@@ -239,22 +239,25 @@ import Footer from '../components/Footer.astro';
 <style>
 /* Hero de página */
 .page-hero {
-  background: linear-gradient(135deg, var(--color-primary-black) 0%, #333333 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-primary-yellow) 0%, var(--color-yellow-bright) 100%);
+  color: var(--color-primary-black);
   padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-3xl) 0;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .page-hero h1 {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin-bottom: var(--spacing-md);
-  color: white;
+  color: var(--color-primary-black);
 }
 
 .hero-subtitle {
   font-size: var(--font-size-xl);
-  color: var(--color-primary-orange);
+  color: var(--color-primary-black);
   font-style: italic;
   font-weight: 500;
 }
