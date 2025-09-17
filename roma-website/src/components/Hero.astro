@@ -12,28 +12,28 @@
       <div class="hero-text">
         <h1 class="hero-title">
           Conectamos
-          <span class="highlight-orange">talento</span>
+          <span class="highlight-yellow">talento</span>
           con
-          <span class="highlight-green">sentido</span>
+          <span class="highlight-gray">sentido</span>
         </h1>
 
         <p class="hero-subtitle">
-          Entregamos soluciones profesionales especializadas a la industria minera,
+          Entregamos soluciones profesionales especializadas a la industria,
           generando impacto económico y social positivo en cada proyecto.
         </p>
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">13.5%</span>
-            <span class="stat-text">del PIB minero en Chile</span>
+            <span class="stat-number">+15</span>
+            <span class="stat-text">años de experiencia acumulada</span>
           </div>
           <div class="stat">
-            <span class="stat-number">65%</span>
-            <span class="stat-text">trabajadores externos en BHP</span>
+            <span class="stat-number">95%</span>
+            <span class="stat-text">de solicitudes respondidas en menos de 48 horas</span>
           </div>
           <div class="stat">
-            <span class="stat-number">100%</span>
-            <span class="stat-text">de nuestros proyectos con impacto social</span>
+            <span class="stat-number">5</span>
+            <span class="stat-text">países con experiencia (Venezuela, Chile, México, USA y Australia)</span>
           </div>
         </div>
 
@@ -53,7 +53,7 @@
 
       <div class="hero-visual">
         <div class="hero-card-grid">
-          <div class="hero-card card-orange">
+          <div class="hero-card card-yellow">
             <div class="card-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
@@ -63,7 +63,7 @@
             <p>Respuesta ágil a desafíos complejos</p>
           </div>
 
-          <div class="hero-card card-green">
+          <div class="hero-card card-gray">
             <div class="card-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
@@ -161,18 +161,18 @@
   color: var(--color-primary-black);
 }
 
-.highlight-orange {
-  color: var(--color-primary-orange);
+.highlight-yellow {
+  color: var(--color-primary-yellow);
   position: relative;
 }
 
-.highlight-green {
-  color: var(--color-primary-green);
+.highlight-gray {
+  color: var(--color-primary-gray);
   position: relative;
 }
 
-.highlight-orange::after,
-.highlight-green::after {
+.highlight-yellow::after,
+.highlight-gray::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -222,7 +222,7 @@
   display: block;
   font-size: var(--font-size-3xl);
   font-weight: 700;
-  color: var(--color-primary-orange);
+  color: var(--color-primary-gray);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -242,7 +242,7 @@
 .hero-tagline {
   opacity: 0.8;
   font-size: var(--font-size-lg);
-  color: var(--color-primary-green);
+  color: var(--color-primary-gray);
   font-weight: 500;
 }
 
@@ -286,13 +286,14 @@
   left: 100%;
 }
 
-.card-orange {
-  background: linear-gradient(135deg, var(--color-primary-orange) 0%, #ff9500 100%);
-  color: white;
+.card-yellow {
+  background: linear-gradient(135deg, var(--color-primary-yellow) 0%, #ffcc00 100%);
+  color: var(--color-primary-black);
+  font-weight: 600;
 }
 
-.card-green {
-  background: linear-gradient(135deg, var(--color-primary-green) 0%, #32cd32 100%);
+.card-gray {
+  background: linear-gradient(135deg, var(--color-primary-gray) 0%, #555555 100%);
   color: white;
 }
 
@@ -356,7 +357,7 @@
 
 .scroll-arrow {
   animation: bounce 2s infinite;
-  color: var(--color-primary-orange);
+  color: var(--color-primary-gray);
 }
 
 @keyframes bounce {
